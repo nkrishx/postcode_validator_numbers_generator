@@ -3,14 +3,15 @@ Description: Unit test code to check the functions of UK_postcode.py,
              Functions checked are:
                 postcode_valid
                 postcode_data
+                numbers_print
              Random postcodes obtained from http://www.ukpostcode.co.uk/random.htm are used.
 
 author     : Naveen Krishnamurthy
 Date       : 11-06-2020
-
 """
-
+#import statements
 from UK_postcode import *
+from print_numbers import *
 import unittest
 
 class PostcodeTest(unittest.TestCase):
@@ -18,6 +19,7 @@ class PostcodeTest(unittest.TestCase):
     def test_postcode_valid(self):
         """
             test for all valid post code cases
+            valid postcode formats can be found at "https://www.doogal.co.uk/UKPostcodes.php"
         """
         self.assertTrue(postcode_valid("DN55 1PT"))
         self.assertTrue(postcode_valid("EH8 9UJ"))
@@ -63,6 +65,27 @@ class PostcodeTest(unittest.TestCase):
         except:
             print("\n \"Postcode data not found\" test success!")
             print("#######################################")
+
+class PrintNumberTest(unittest.TestCase):
+
+    def test_numbers_threefive(self):
+        """
+            test for printing the numbers (multiple of 3,5 and both)
+            Val is a list containing the expected format of numbers to be printed
+        """
+        Val = [1, 2, 'Three', 4, 'Five', 'Three', 7, 8, 'Three', 'Five',\
+                11, 'Three', 13, 14, 'ThreeFive', 16, 17, 'Three', 19, 'Five', \
+                'Three', 22, 23, 'Three', 'Five', 26, 'Three', 28, 29, 'ThreeFive',\
+                31, 32, 'Three', 34, 'Five', 'Three', 37, 38, 'Three', 'Five', \
+                41, 'Three', 43, 44, 'ThreeFive', 46, 47, 'Three', 49, 'Five', \
+                'Three', 52, 53, 'Three', 'Five', 56, 'Three', 58, 59, 'ThreeFive',\
+                61, 62, 'Three', 64, 'Five', 'Three', 67, 68, 'Three', 'Five',\
+                71, 'Three', 73, 74, 'ThreeFive', 76, 77, 'Three', 79, 'Five',\
+                'Three', 82, 83, 'Three', 'Five', 86, 'Three', 88, 89, 'ThreeFive',\
+                91, 92, 'Three', 94, 'Five', 'Three', 97, 98, 'Three', 'Five']
+        self.assertEqual(numbers_print(),Val)
+        print("\n \"Print numbers\" test success!")
+        print("#######################################")
 
 if __name__ == '__main__':
     unittest.main()

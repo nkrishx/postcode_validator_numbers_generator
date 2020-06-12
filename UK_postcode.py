@@ -6,9 +6,8 @@ Description: Code for formatting and validating UK postcodes as per,
 
 author    : Naveen Krishnamurthy
 Date      : 11-06-2020
-
 """
-
+#import statements
 import sys
 import re
 import json
@@ -24,7 +23,7 @@ def postcode_valid(postcode):
         The postcodes are alphanumeric, and are variable in length: ranging from six to eight characters (including a space).
     """
 
-    if len(postcode) >= 6 and len(postcode) <= 8:
+    if len(postcode) >= 6 and len(postcode) <= 8: #length of poste code should be between 6 to 8(inclusive) including the space
         try:
             outward = postcode.split(" ")[0]
             inward = postcode.split(" ")[1]
@@ -49,7 +48,7 @@ def postcode_data(postcode, extra_arg=None):
         A status '200' indicates succesful request response cycle.
     """
     try:
-        url = requests.get('https://api.postcodes.io/postcodes/' + postcode)
+        url = requests.get('https://api.postcodes.io/postcodes/' + postcode) #api call to postoces.io
         data_postcode = json.loads(url.text)
         if data_postcode["status"] != 200:
             print("\nPost code not found or the post code may not be in use!")
