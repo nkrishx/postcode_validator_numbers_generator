@@ -40,7 +40,7 @@ Run unit test
   - python -m unittest unit_test.py
 
 Import functions from individual files for using them
-  eg: from UK_postcode import show_details()
-      show_details("DN55 1PT")
-  eg: from UK_postcode import *
+  - eg: from UK_postcode import show_details()
+      - show_details("DN55 1PT")
+  - eg: from UK_postcode import *
    
